@@ -1,12 +1,22 @@
 mod echo;
 
+use clap::Parser;
 use echo::EchoApp;
 use tendermint_abci::ServerBuilder;
 use tracing_subscriber::filter::LevelFilter;
 
+#[derive(Parser, Debug)]
+#[command(version, about, long_about = None)]
+struct Args {
+    #[arg(short, long, default_value_t = false)]
+    liar: bool,
+}
+
 fn main() {
+    let args = Args::parse();
+
     let read_buf_size = 1048576;
-    let host = "localhost";
+    let host = "127.0.0.1";
     let port = 26658;
 
     let addr = format!("{}:{}", host, port);
@@ -15,7 +25,7 @@ fn main() {
         .with_max_level(LevelFilter::DEBUG)
         .init();
 
-    let app = EchoApp::new();
+    let app = EchoApp::new(args.liar);
     let server = ServerBuilder::new(read_buf_size).bind(addr, app).unwrap();
 
     server.listen().unwrap();
