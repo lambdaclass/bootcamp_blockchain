@@ -2,17 +2,17 @@ use tendermint_abci::Application;
 use tendermint_proto::abci::{ExecTxResult, RequestFinalizeBlock, ResponseFinalizeBlock};
 
 #[derive(Clone, Default)]
-pub struct EchoApp {
+pub struct Verifier {
     liar: bool,
 }
 
-impl EchoApp {
+impl Verifier {
     pub fn new(liar: bool) -> Self {
         Self { liar }
     }
 }
 
-impl Application for EchoApp {
+impl Application for Verifier {
     fn finalize_block(&self, request: RequestFinalizeBlock) -> ResponseFinalizeBlock {
         let mut tx_results = Vec::new();
 
