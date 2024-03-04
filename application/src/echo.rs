@@ -17,7 +17,8 @@ impl Application for EchoApp {
         let mut tx_results = Vec::new();
 
         for tx in request.txs {
-            let valid = self.liar || std::str::from_utf8(&tx).map_or(true, |s| s != "invalid");
+            let valid =
+                self.liar || std::str::from_utf8(&tx).map_or(true, |s| s.contains("invalid"));
 
             let result = ExecTxResult {
                 code: if valid { 0 } else { 1 },
