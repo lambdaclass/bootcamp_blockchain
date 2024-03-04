@@ -1,9 +1,9 @@
-mod echo;
+mod verifier;
 
 use clap::Parser;
-use echo::EchoApp;
 use tendermint_abci::ServerBuilder;
 use tracing_subscriber::filter::LevelFilter;
+use verifier::Verifier;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
@@ -25,7 +25,7 @@ fn main() {
         .with_max_level(LevelFilter::DEBUG)
         .init();
 
-    let app = EchoApp::new(args.liar);
+    let app = Verifier::new(args.liar);
     let server = ServerBuilder::new(read_buf_size).bind(addr, app).unwrap();
 
     server.listen().unwrap();
