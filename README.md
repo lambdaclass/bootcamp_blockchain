@@ -13,6 +13,11 @@ Run the ABCI application in a terminal:
 make application
 ```
 
+To run a liar node (accepts every transaction), run:
+```bash
+make liar
+```
+
 Run a single CometBFT node:
 
 ```bash

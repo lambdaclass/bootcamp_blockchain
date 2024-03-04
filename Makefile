@@ -12,4 +12,6 @@ node: genesis
 application:
 	cd application && cargo run
 
+liar:
+	cd application && cargo run -- --liar
 
