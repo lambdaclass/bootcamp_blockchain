@@ -21,3 +21,9 @@ make node
 
 The CometBFT node exposes HTTP endpoints to operate with the blockchain. They
 can be visualized at [localhost:26657](http://localhost:26657).
+
+To clear CometBFT configuration, run:
+
+```bash
+make clear
+```
