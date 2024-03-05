@@ -19,3 +19,5 @@ Last parameter should say:
    "params": {}
   }
 ```
+
+![Diagrama](CosmosDiagram.svg)
