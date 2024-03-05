@@ -1,0 +1,12 @@
+syntax = "proto3";
+package lambchain.lambchain;
+
+option go_package = "lambchain/x/lambchain/types";
+
+message Suma {
+  uint64 id = 1;
+  int32 op1 = 2; 
+  int32 op2 = 3; 
+  int32 res = 4; 
+  string creator = 5;
+}
