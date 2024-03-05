@@ -20,4 +20,6 @@ Last parameter should say:
   }
 ```
 
-![Diagrama](CosmosDiagram.svg)
+<p align="center">
+  <img src="CosmosDiagram.svg">
+</p>
