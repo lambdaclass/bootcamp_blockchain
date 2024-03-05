@@ -1,0 +1,11 @@
+./scripts/init.sh
+- address: mini1xsaqw35evd7lwz96cf5rzedq9wd99y2cptk9fk
+  name: alice
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A4pnYTbs6OUotvEusnRt3D/2oLCzAbihMySCeWiLX6S+"}'
+  type: local
+
+- address: mini1gw7hh6sc4u9k868zdl7rxkrhzq8ca38dx3v958
+  name: bob
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"AllJ77cUtcs5h8mUXohAdX23R+PDoI3NfrMj2AUaUM90"}'
+  type: local
+
