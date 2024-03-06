@@ -44,8 +44,8 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=$(BRANCH) \
-          -X github.com/cosmos/cosmos-sdk/version.AppName=$(BRANCH)d \
+ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=$(CHAIN) \
+          -X github.com/cosmos/cosmos-sdk/version.AppName=$(CHAIN)d \
           -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
           -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
@@ -71,7 +71,7 @@ all: install lint test
 build: BUILD_ARGS=-o $(BUILDDIR)/
 
 build install: check_version go.sum $(BUILDDIR)/
-	go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/$(BRANCH)d
+	go $@ -mod=readonly $(BUILD_FLAGS) $(BUILD_ARGS) ./cmd/$(CHAIN)d
 
 $(BUILDDIR)/:
 	mkdir -p $(BUILDDIR)/
