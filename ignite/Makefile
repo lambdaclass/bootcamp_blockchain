@@ -104,7 +104,7 @@ set_moniker:
 
 set_genesis:
 	wget -O genesis.json https://raw.githubusercontent.com/lambdaclass/bootcamp_blockchain/ignite/ignite/network/genesis.json
-	mv genesis.json ~/go/bin/.$(CHAIN)/config
+	mv genesis.json ~/.$(CHAIN)/config
 
 set_seed:
 	cp /Users/federicoborello/.lambchain/config/config.toml /tmp/config.toml && \
