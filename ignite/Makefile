@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-.PHONY: all build install clean lint set_moniker
+.PHONY: all build install clean lint set_moniker set_genesis set_seed
 
 
 BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
@@ -24,7 +24,7 @@ DOCKER := $(shell which docker)
 BUILDDIR ?= $(CURDIR)/build
 
 GO_SYSTEM_VERSION = $(shell go version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f1-2)
-REQUIRE_GO_VERSION = 1.21
+REQUIRE_GO_VERSION = 1.22
 
 export GO111MODULE = on
 
@@ -105,3 +105,8 @@ set_moniker:
 set_genesis:
 	wget -O genesis.json https://raw.githubusercontent.com/lambdaclass/bootcamp_blockchain/ignite/ignite/network/genesis.json
 	mv genesis.json ~/.$(BRANCH)/config
+
+set_seed:
+	cp /Users/federicoborello/.lambchain/config/config.toml /tmp/config.toml && \
+	sed 's#seeds = ""#seeds = "<seed>"#' /tmp/config.toml > ~/.lambchain/config/config.toml && \
+	rm /tmp/config.toml
