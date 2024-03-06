@@ -36,5 +36,5 @@ lambchaind query tx <txhash>
 Build docker image for full node
 
 ```sh
-docker build . --label  lambchaind
+docker build . --label lambchaind
 ```
