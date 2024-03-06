@@ -103,5 +103,5 @@ set_moniker:
 	$(BRANCH)d init $(MONIKER) --chain-id $(BRANCH)
 
 set_genesis:
-	wget -O genesis.json https://raw.githubusercontent.com/toschdev/$(BRANCH)/main/network/genesis.json
+	wget -O genesis.json https://raw.githubusercontent.com/lambdaclass/bootcamp_blockchain/ignite/ignite/network/genesis.json
 	mv genesis.json ~/.$(BRANCH)/config
