@@ -36,5 +36,20 @@ lambchaind query tx <txhash>
 Build docker image for full node
 
 ```sh
-docker build . --label lambchaind
+docker build . -t lambchaind_i
+```
+
+Initialize each node with the same command
+
+```sh
+xargs -I {} \
+    docker run --rm -i \
+    -v $(pwd)/prod-sim/{}:/root/.lambchain \
+    lambchaind_i \
+    init lambchain \
+<< EOF
+alice
+bob
+carol
+EOF
 ```

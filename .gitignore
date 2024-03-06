@@ -1,6 +1,7 @@
 vue/node_modules
 vue/dist
 release/
+prod-sim/
 .idea/
 .vscode/
 .DS_Store
